@@ -1,16 +1,18 @@
-const INTIAL_STATE = { devID: '' };
 
 
-const deviceIdReducer = (state = INTIAL_STATE, action) => {
+
+const deviceIdReducer = (state = {
+    devID: ''
+}, action) => {
     switch (action.type) {
         case "update_device_id":
-            return {
+            state = {
                 ...state,
                 devID: action.payload,
-            }
-        default:
-            return state;
+            };
+            break;
     }
+    return state;
 }
 
 export default deviceIdReducer
